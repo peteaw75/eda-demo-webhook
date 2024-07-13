@@ -1,0 +1,14 @@
+---
+- name: Listen for events on a webhook
+  hosts: all
+  sources:
+    - name: Match events posted to port 5000
+      ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+
+  rules:
+    - name: Debug if the webhook has a payload
+      condition: event.payload is defined
+      action:
+        debug:
