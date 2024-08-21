@@ -13,13 +13,13 @@
 #      condition: event.payload is defined
 #      action:
 #        debug:
-    - name: Print "Red Hat is great" if payload message is Message A 
+    - name: Print "Ansible is great" if payload message is Message A 
       condition: event.payload.message == "Message A"
       action:
         debug:
-          mesg: "Red Hat is great"
-    - name: Print "IBM is great too" if payload message is Message B
+          mesg: "Ansible is great"
+    - name: Print "Red Hat is great" if payload message is Message B
       condition: event.payload.message == "Message B"
       action:
         debug:
-          msg: "IDM is great too"      
+          msg: "Red Hat is great"      
