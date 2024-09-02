@@ -14,10 +14,10 @@
         permanent: yes
         state: enabled
         immediate: yes
-      when: inventory_hostname == {{ eda_input_webserver }}
+      when: inventory_hostname == eda_input_webserver
 
     - name: "Restart apache webserver"
       service:
         name: httpd
         state: restarted
-      when: inventory_hostname == {{ eda_input_webserver }}
+      when: inventory_hostname == eda_input_webserver
