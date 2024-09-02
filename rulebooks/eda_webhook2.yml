@@ -22,5 +22,6 @@
               eda_input_webserver: "{{ event.payload.server }}"
         - run_job_template:
             name: "paw_EDA_demo_restart_webserver"
+            organization: "Default"
             #            extra_vars:
             #  webserver_from_eda: "{{ input_webserver }}"
