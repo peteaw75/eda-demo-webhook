@@ -1,0 +1,9 @@
+---
+- name: Restart webserver
+  hosts: all
+  gather_facts: false
+  become: true
+  become_user: root
+  tasks:
+    - debug:
+        msg: "EDA Webhook initiated restart webserver - {{ event.payload.server }} OR {{ eda_input_webserver }}"
