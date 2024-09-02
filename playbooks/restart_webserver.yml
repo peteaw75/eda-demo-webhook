@@ -20,4 +20,4 @@
       service:
         name: httpd
         state: restarted
-      when: inventory_hostname == ['eda_input_webserver']
+      when: inventory_hostname == ansible_facts['eda_input_webserver']
