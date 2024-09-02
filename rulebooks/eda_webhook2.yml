@@ -23,5 +23,6 @@
         - run_job_template:
             name: "paw_EDA_demo_restart_webserver"
             organization: "Default"
-            extra_vars:
-              eda_input_webserver: "{{ input_webserver }}"
+            job_args:
+              extra_vars:
+                eda_input_webserver: "{{ input_webserver }}"
