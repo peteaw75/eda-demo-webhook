@@ -1,0 +1,26 @@
+---
+# Test
+- name: Listen for events on a webhook
+  hosts: all
+  sources:
+    - name: Match events posted to port 5000
+      ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+
+  rules:
+#    - name: Debug if the webhook has a payload
+#      condition: event.payload is defined
+#      action:
+#        debug:
+#
+    - name: Restart web server when payload message is Restart webserver and payload.server is defined 
+      condition: event.payload.message == "Restart webserver" and event.payload.server is defined
+      actions:
+        - set_fact:
+            fact:
+              input_webserver: "{{ event.payload.server }}"
+        - run_playbook:
+            name: playbooks/restart_webserver.yml
+            extra_vars:
+              webserver_from_eda: "{{ input_webserver }}"

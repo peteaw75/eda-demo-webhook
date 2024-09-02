@@ -1,0 +1,23 @@
+---
+- name: Restart webserver
+  hosts: all
+  gather_facts: false
+  become: true
+  become_user: root
+  tasks:
+    - debug:
+        msg: "EDA Webhook initiated restart webserver"
+
+    - name: "Ensure firewall openings are in place."
+      firewalld:
+        service: http
+        permanent: yes
+        state: enabled
+        immediate: yes
+      when: inventory_hostname == {{ webserver_from_eda }}
+
+    - name: "Restart apache webserver"
+      service:
+        name: httpd
+        state: restarted
+      when: inventory_hostname == {{ websrver_from_eda }}
