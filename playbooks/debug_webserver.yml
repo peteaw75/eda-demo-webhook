@@ -6,4 +6,4 @@
   become_user: root
   tasks:
     - debug:
-        msg: "EDA Webhook initiated restart webserver - {{ event.payload.server }} OR {{ eda_input_webserver }}"
+        msg: "EDA Webhook initiated restart webserver - {{ ansible_eda.event.payload.server }} OR {{ eda_input_webserver }}"
