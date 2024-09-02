@@ -21,4 +21,5 @@
           organization: "Default"
           job_args:
             extra_vars:
-              eda_input_webserver: "{{ event.payload.server }}"
+                    #eda_ionput_webserver: "{{ event.payload.server }}"
+              paw_test1: hello
