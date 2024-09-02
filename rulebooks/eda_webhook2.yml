@@ -15,12 +15,10 @@
 #
     - name: Restart web server when payload message is Restart webserver and payload.server is defined 
       condition: event.payload.message == "Restart webserver" and event.payload.server is defined
-      actions:
-        - set_fact:
-            input_webserver: "{{ event.payload.server }}"
+      action:
         - run_job_template:
             name: "paw_EDA_demo_restart_webserver"
             organization: "Default"
             job_args:
               extra_vars:
-                eda_input_webserver: "{{ input_webserver }}"
+                eda_input_webserver: "{{ event.payload.server }}"
