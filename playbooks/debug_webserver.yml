@@ -7,4 +7,4 @@
   tasks:
     - debug:
             # msg: "EDA Webhook initiated restart webserver - {{ ansible_eda.event.payload.server }} OR {{ eda_input_webserver }}"
-        msg: " Variable from EDA is {{ paw_test1 }}"
+        msg: " Variable from EDA is {{ ansible_eda.paw_test1 }}"
