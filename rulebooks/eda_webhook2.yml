@@ -9,7 +9,6 @@
       filters:
         - ansible.eda.dashes_to_underscores:
   rules:
-
     - name: Restart web server when payload.message is Restart webserver and payload.server is defined 
       condition: event.payload.message == "Restart webserver" and event.payload.server is defined
       action:
