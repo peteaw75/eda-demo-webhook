@@ -1,0 +1,14 @@
+---
+- name: Trigger EDA Event
+  hosts: localhost
+  tasks:
+    - name: POST Request trigger
+      ansible.builtin.uri:
+        url: http://hlaaeda01.idm.lokidev.xyz:5000
+        method: POST
+        body_format: json
+        body:
+          message: "Restart webserver"
+          server: "hlrhel801.idm.lokidev.xyz"
+        headers:
+          Content-Type: application/json
