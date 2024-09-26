@@ -21,3 +21,7 @@ curl -H 'Content-Type: application/json' -d "{\"message\": \"Test-Restart webser
 ~~~
 curl -H 'Content-Type: application/json' -d "{\"message\": \"Restart webserver\", \"server\": \"hlrhel802.idm.lokidev.xyz\"}" hlaaeda01.idm.lokidev.xyz:5000
 ~~~
+### EDA action trigger with authentication token
+~~~
+curl -H 'Authorization: Bearer Redhat!' -H 'Content-Type: application/json' -d "{\"message\": \"Restart webserver\", \"server\": \"hlrhel801.idm.lokidev.xyz\"}" hlaaeda01.idm.lokidev.xyz:5000
+~~~
