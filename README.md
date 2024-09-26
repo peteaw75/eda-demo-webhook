@@ -1,5 +1,5 @@
 # eda-demo-webhook
-
+Demo showing EDA receiving events from external sources e.g. monitoring applications and responding automatically based on conditions/logic.
 ## Trigger messages
 
 ### No action since conditions did not match
