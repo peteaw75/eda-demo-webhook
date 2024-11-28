@@ -13,6 +13,7 @@
         url_password: test1234
         validate_certs: false
         method: POST
+        force_basic_auth: true
         body_format: json
         body:
           message: "{{ eda_message }}"
