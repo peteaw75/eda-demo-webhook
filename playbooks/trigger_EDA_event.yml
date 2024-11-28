@@ -1,14 +1,20 @@
 ---
 - name: Trigger EDA Event
   hosts: localhost
+  vars:
+    eda_endpoint: "https://hlaio01.idm.lokidev.xyz:443/eda-event-streams/api/eda/v1/external_event_stream/8536e7d2-4424-4775-ae26-8584c2cce6d9/post/"
+    eda_message: "Restart webserver"
+    eda_server: "hlrhel801.idm.lokidev.xyz"
   tasks:
     - name: POST Request trigger
       ansible.builtin.uri:
-        url: http://hlaaeda01.idm.lokidev.xyz:5000
+        url: "{{ eda_endpoint }}"
+        username: edapaw
+        password: test1234
         method: POST
         body_format: json
         body:
-          message: "Restart webserver"
-          server: "hlrhel801.idm.lokidev.xyz"
+          message: "{{ eda_message }}"
+          server: "{{ eda_server }}"
         headers:
           Content-Type: application/json
