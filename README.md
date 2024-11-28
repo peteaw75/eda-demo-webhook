@@ -25,3 +25,7 @@ curl -H 'Content-Type: application/json' -d "{\"message\": \"Restart webserver\"
 ~~~
 curl -H 'Authorization: Bearer Redhat!' -H 'Content-Type: application/json' -d "{\"message\": \"Restart webserver\", \"server\": \"hlrhel801.idm.lokidev.xyz\"}" hlaaeda01.idm.lokidev.xyz:5000
 ~~~
+### AAP 2.5 only - EDA action trigger with userid and password. Use event stream with basic authentication.
+~~~
+curl -H 'Content-Type: application/json' -d "{\"message\": \"Restart webserver\", \"server\": \"hlrhel801.idm.lokidev.xyz\"}" -u "edapaw:test1234" -k https://hlaio01.idm.lokidev.xyz:443/eda-event-streams/api/eda/v1/external_event_stream/8536e7d2-4424-4775-ae26-8584c2cce6d9/post/
+~~~
