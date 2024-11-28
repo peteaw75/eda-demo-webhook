@@ -11,6 +11,7 @@
         url: "{{ eda_endpoint }}"
         url_username: edapaw
         url_password: test1234
+        validate_certs: false
         method: POST
         body_format: json
         body:
