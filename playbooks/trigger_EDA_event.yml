@@ -6,7 +6,7 @@
     eda_message: "Restart webserver"
     eda_server: "hlrhel801.idm.lokidev.xyz"
     eda_auth_username: "edapaw"
-    ed_auth_password: "test1234"
+    eda_auth_password: "test1234"
   tasks:
     - name: POST Request trigger
       ansible.builtin.uri:
