@@ -1,0 +1,43 @@
+---
+- name: Setup httpd server
+  hosts: all
+  gather_facts: false
+  become: true
+  become_user: root
+  tasks:
+    - name: Install httpd server if not present
+      ansible.builtin.dnf:
+        name: httpd
+        state: present
+      when: inventory_hostname in groups['webserver']
+
+    - name: Start and enable httpd service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+      when: inventory_hostname in groups['webserver']
+
+    - name: Configure firewalld
+      ansible.posix.firewalld:
+        service: http
+        immediate: yes
+        permanent: true
+        state: enabled
+      when: inventory_hostname in groups['webserver']
+      notify: Restart http
+
+    - name: Add template to /var/www/html directory
+      ansible.builtin.template:
+        src: templates/index.j2
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: "0644"
+      when: inventory_hostname in groups['webserver']
+
+  handlers:
+    - name: Restart http
+      ansible.builtin.service:
+        name: httpd
+        state: restarted

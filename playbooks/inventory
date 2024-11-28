@@ -1,3 +1,5 @@
-[all]
-hlrhel801.idm.lokidev.xyz
-hlrhel802.idm.lokidev.xyz
+[non_webserver]
+hlrhel802.idm.lokidev.xyz ansible_ssh_private_key_file=./keys/id_rsa
+
+[webserver]
+hlrhel801.idm.lokidev.xyz ansible_ssh_private_key_file=./keys/id_rsa

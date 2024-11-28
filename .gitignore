@@ -1,0 +1,4 @@
+playbooks/keys/**
+playbooks/ansible-navigator.log
+ansible-navigator.log
+
