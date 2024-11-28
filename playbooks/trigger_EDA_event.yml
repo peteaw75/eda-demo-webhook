@@ -9,8 +9,8 @@
     - name: POST Request trigger
       ansible.builtin.uri:
         url: "{{ eda_endpoint }}"
-        username: edapaw
-        password: test1234
+        url_username: edapaw
+        url_password: test1234
         method: POST
         body_format: json
         body:
